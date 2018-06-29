@@ -1,0 +1,46 @@
+<div class="col-md-3">
+  <div class="panel panel-primary">
+  <!-- <ul *ngFor="let data of datas"> -->
+    <!-- <li>{{data.id}}  </li>
+    <li>{{data.itemId}}  </li>
+    <li>{{data.title}}  </li> -->
+    
+      <!-- <a href="" ng-click="showme=true">Show</a>
+      <button ng-click="showme=false">Hide</button> 
+      
+      
+        <p ng-hide="showme">It will appear here!</p>
+        <p ng-show="showme">This is mah content, yo!</p>
+     -->
+      
+     <div class="panel-heading">product list</div>
+
+     <br>
+    SEARCH:
+    <input [(ngModel)]="product" placeholder="product name" />  {{product}}<br><br>
+    <button type="button" class="btn btn-primary" (click)="clicked()">show</button>
+    
+    
+    <table class="table">
+        <tr>
+        <th>itemid</th>
+        <th>id</th>
+        <th>title</th>
+        <th>rating</th>
+      </tr>
+  
+    
+      <tr *ngFor="let data of datas | searchfilter:product ">
+          
+        <td *ngIf="show">{{data.itemId}}</td>
+        <td><a [routerLink]="['/product-detail', data.id ]">{{data.id}}</a></td>
+        <td>{{data.title}}</td>
+        <!-- <td>{{data.rating}}</td> -->
+        <td><app-rating></app-rating></td>
+      </tr>
+      </table>
+      
+      
+  <!-- </ul> -->
+  </div>
+  </div>

@@ -1,0 +1,26 @@
+
+
+<div class="panel panel-info col-md-3">
+      
+     <div>
+    <table class="table">
+        <tr>
+        <th>itemid</th>
+        <th>id</th>
+        <th>title</th>
+        <th>rating</th>
+      </tr>
+  
+    
+      <tr *ngIf="Product ">
+          
+        <td>{{Product.itemId}}</td>
+        <td>{{Product.id}}</td>
+        <td>{{Product.title}}</td>
+        <!-- <td>{{data.rating}}</td> -->
+        <td><app-rating></app-rating></td>
+      </tr>
+      </table>
+      
+  <!-- </ul> -->
+  </div>

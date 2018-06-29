@@ -1,0 +1,136 @@
+<div class="well">
+    <div class="row">
+        <div class="col-md-6 ">
+            <form [formGroup]="registerForm" 
+                  novalidate 
+                  (ngSubmit)="save(registerForm.value)"
+                  >
+                <legend>User</legend>
+                <div formGroupName="UsersLoginEntityObj">
+                    <div class="form-group"
+                     [ngClass]="{'has-error': !registerForm.controls.UsersLoginEntityObj.controls.UserName.valid &&
+                                 registerForm.controls.UsersLoginEntityObj.controls.UserName.touched }"
+                    >
+                        <label>UserName</label>
+                        <input [(ngModel)]="model.UsersLoginEntityObj.UserName" 
+                        name="UserName"
+                         formControlName="UserName" 
+                         #UserName 
+                         type="text"
+                  
+                            class="form-control">
+                        <div *ngIf="registerForm.controls.UsersLoginEntityObj.controls.UserName.touched 
+                    && !registerForm.controls.UsersLoginEntityObj.controls.UserName.valid" class="alert alert-danger">
+                            Username is required
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group"
+                 [ngClass]="{'has-error': !registerForm.controls.FirstName.valid &&
+                                 registerForm.controls.FirstName.touched }"
+                >
+                    <label>FirstName</label>
+                    <input [(ngModel)]="model.FirstName" 
+                            name="FirstName"
+                             formControlName="FirstName" 
+                             #FirstName 
+                             type="text" 
+                             class="form-control"
+                             >
+                    <div class="alert alert-danger" 
+                    *ngIf="registerForm.controls.FirstName.touched 
+                   && !registerForm.controls.FirstName.valid">
+                        FirstName is required
+                    </div>
+                </div>
+                <div class="form-group"
+                 [ngClass]="{'has-error': !registerForm.controls.LastName.valid &&
+                                 registerForm.controls.LastName.touched }"
+
+                >
+                    <label>LastName</label>
+                    <input [(ngModel)]="model.LastName" 
+                    name="LasName" 
+                    formControlName="LastName" 
+                    #LastName type="text" 
+                    class="form-control"
+                    >
+                    <div class="alert alert-danger" 
+                    *ngIf="registerForm.controls.LastName.touched 
+                   && !registerForm.controls.LastName.valid">
+                        LastName is required
+                    </div>
+                </div>
+                <div formGroupName="UsersLoginEntityObj">
+                    <div class="form-group"
+                     [ngClass]="{'has-error': !registerForm.controls.UsersLoginEntityObj.controls.Password.valid &&
+                                 registerForm.controls.UsersLoginEntityObj.controls.Password.touched }"
+                    
+                    >
+                        <label>Password</label>
+                        <input 
+                        [(ngModel)]="model.UsersLoginEntityObj.Password" 
+                        name="Password" 
+                        formControlName="Password"
+                         #Password 
+                         type="password"
+                        class="form-control"
+                        >
+                        <div *ngIf="registerForm.controls.UsersLoginEntityObj.controls.Password.touched
+                     && !registerForm.controls.UsersLoginEntityObj.controls.Password.valid"
+                      class="alert alert-danger">
+                            Password is required
+                        </div>
+                    </div>
+                </div>
+                <div formGroupName="UsersCommunicationEntityObj">
+                    <div class="form-group"
+                    
+                     [ngClass]="{'has-error': !registerForm.controls.UsersCommunicationEntityObj.controls.EmailId.valid &&
+                                 registerForm.controls.UsersCommunicationEntityObj.controls.EmailId.touched }"
+                    >
+                        <label>E-mail</label>
+                        <input [(ngModel)]="model.UsersCommunicationEntityObj.EmailId" 
+                        name="EmailId" 
+                        formControlName="EmailId" 
+                        #EmailId 
+                        type="email"
+                        class="form-control">
+                        <div class="alert alert-danger" 
+                        *ngIf="registerForm.controls.UsersCommunicationEntityObj.controls.EmailId.touched 
+                    && !registerForm.controls.UsersCommunicationEntityObj.controls.EmailId.valid">
+                            Invalid email please try again !
+                        </div>
+                    </div>
+                </div>
+                <div formGroupName="UsersCommunicationEntityObj"
+                 [ngClass]="{'has-error': !registerForm.controls.UsersCommunicationEntityObj.controls.MobileNo.valid &&
+                                 registerForm.controls.UsersCommunicationEntityObj.controls.MobileNo.touched }"
+                
+                >
+                    <div class="form-group">
+                        <label>Contact Number</label>
+                        <input [(ngModel)]="model.UsersCommunicationEntityObj.MobileNo"
+                               name="MobileNo"
+                                formControlName="MobileNo"
+                                 #MobileNo 
+                                 type="text"
+                            class="form-control">
+                        <div class="alert alert-danger"
+                         *ngIf="registerForm.controls.UsersCommunicationEntityObj.controls.MobileNo.touched 
+                    && !registerForm.controls.UsersCommunicationEntityObj.controls.MobileNo.valid">
+                            Invalid contact number please try again !
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group sign">
+                    <!-- Button -->
+                    <div class="controls">
+                        <button class="btn btn-success"
+                         type="submit" [disabled]="!registerForm.valid">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
